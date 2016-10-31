@@ -8,7 +8,7 @@ I recommend as a proper LaTeX introduction https://tobi.oetiker.ch/lshort/lshort
 This project provides a new document type "softlang" and example document structure.  
 Each tex file has comments describing the purpose of the file:  
 -ausarbeitung.tex: Root and Settings for the whole document like title, name, bib file, imported packages.
-   This file doesn't have any content itself, it produces indecis, table of contents, title page 
+   This file doesn't have any content itself, it produces indecis, table of contents, title page
    and  includes other tex files for the content.  
 -abstract.tex: The abstract in german and english.  
 -content.tex: This file imports the content from the content/....tex documents.  
@@ -23,3 +23,8 @@ Instructions (Mac,Linux):
 2. Edit tex files  
 3. Run 'make'  
 Make produces a new ausarbeitung.pdf and some auxiliary files. You can delete these auxiliary files.  
+
+
+## Dependencies (Ubuntu 16.10)
+
+`sudo apt-get install texlive-latex-extra texlive-bibtex-extra texlive-generic-extra biber`
