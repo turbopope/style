@@ -34,6 +34,8 @@
 \newboolean{@isDA}
 \newboolean{@isBA}
 \newboolean{@isMA}
+\newboolean{@isEXPBA}
+\newboolean{@isEXPMA}
 \newboolean{@isFemale}
 \newboolean{@isTimes}
 \newboolean{@isPalatino}
@@ -52,6 +54,8 @@
 \DeclareOption{diplom}{\setboolean{@isDA}{true}}
 \DeclareOption{msc}{\setboolean{@isMA}{true}}
 \DeclareOption{bsc}{\setboolean{@isBA}{true}}
+\DeclareOption{expba}{\setboolean{@isEXPBA}{true}}
+\DeclareOption{expma}{\setboolean{@isEXPMA}{true}}
 \DeclareOption{w}{\setboolean{@isFemale}{true}}
 \DeclareOption{m}{\setboolean{@isFemale}{false}}
 \DeclareOption{times}{\setboolean{@isTimes}{true}}
@@ -74,7 +78,7 @@
 
 \LoadClass[a4paper,titlepage]{book}
 \RequirePackage[ngerman,english]{babel}                       % Unterstuetzung neue deutsche Rechtschreibung
-\RequirePackage{csquotes}                      
+\RequirePackage{csquotes}
 \RequirePackage[T1]{fontenc}                          % Silbentrennung auch bei Worten mit Umlauten
 \RequirePackage[utf8]{inputenc}                       % Unterstuetzung von Umlauten und Sonderzeichen
 \RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}  % Silbentrennung bei unbekannten zusammengesetzten Worten
@@ -201,6 +205,14 @@
           \normalsize zur Erlangung des Grades eines
           Master of Science\\}
 
+      \ifthenelse{\boolean{@isEXPBA}}{
+          \huge Exposé\\[.2cm]
+          \normalsize für eine Bachelorarbeit\\}
+
+      \ifthenelse{\boolean{@isEXPMA}}{
+          \huge Exposé\\[.2cm]
+          \normalsize für eine Masterarbeit\\}
+
       \ifthenelse{\equal{\@studiengang}{}}{}{
         \normalsize im Studiengang \@studiengang \\[0.75cm]}
 
@@ -226,7 +238,7 @@
 						  & \@drittgutachter \\
                           & \@drittgutachterInfo \\[.2cm]}{}
           \end{tabularx}\\[2cm]}{%
-		  
+
           % \begin{tabularx}{\linewidth}{r  X}
           \begin{tabularx}{1.05\textwidth}{r X} %{ >{\hsize=.24\hsize}X >{\hsize=0.76\hsize}X}
             \ifthenelse{\equal{\@zweitgutachter}{}}{
@@ -254,7 +266,7 @@
     \cleardoublepage
 
 		\ifthenelse{\boolean{@isBA}\or\boolean{@isMA}\or\boolean{@isDA}}{
-			
+
 			\huge
 			\textbf{Erklärung}
 			\normalsize

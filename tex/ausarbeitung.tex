@@ -102,8 +102,10 @@
 \maketitle
 \cleardoublepage
 
-\input{abstract.tex} % Einfügen des Abstracts
-\cleardoublepage
+\ifthenelse{\not\boolean{@isEXPBA}\and\not\boolean{@isEXPMA}}{
+	\input{abstract.tex} % Einfügen des Abstracts
+	\cleardoublepage
+}
 
 %\pagestyle{headings}
 \pagestyle{fancy}
@@ -114,12 +116,16 @@
 \fancyhead[R]{\thepage}        % nur rechts
 
 \pagenumbering{roman}
-\tableofcontents
 
-\cleardoublepage
+\ifthenelse{\not\boolean{@isEXPBA}\and\not\boolean{@isEXPMA}}{
+	\tableofcontents
+	\cleardoublepage
+}
 
-\listoffigures   % fuer ein eventuelles Abbildungsverzeichnis
-\cleardoublepage
+\ifthenelse{\not\boolean{@isEXPBA}\and\not\boolean{@isEXPMA}}{
+	\listoffigures   % fuer ein eventuelles Abbildungsverzeichnis
+	\cleardoublepage
+}
 
 % \listoftables % Für ein Tabellenverzeichnis
 % \cleardoublepage
@@ -136,4 +142,3 @@
 %\bibliographystyle{alphadin}
 \printbibliography
 \end{document}
-
