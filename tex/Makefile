@@ -2,7 +2,7 @@
 
 all: ausarbeitung.pdf
 
-ausarbeitung.pdf: ausarbeitung.tex
+ausarbeitung.pdf: ausarbeitung.tex content/*
 	pdflatex -src -interaction=nonstopmode ausarbeitung.tex
 	biber ausarbeitung.bcf
 	pdflatex -src -interaction=nonstopmode ausarbeitung.tex
