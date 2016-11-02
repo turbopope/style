@@ -114,6 +114,9 @@
 \def\@studiengang{}
 \newcommand{\studiengang}[1]{\def\@studiengang{#1}}
 
+\def\@matnr{}
+\newcommand{\matnr}[1]{\def\@matnr{#1}}
+
 \def\@dozent{}
 \newcommand{\dozent}[1]{\def\@dozent{#1}}
 
@@ -244,6 +247,9 @@
             \ifthenelse{\equal{\@zweitgutachter}{}}{
             Gutachter:			& \@erstgutachter \\
 								& \@erstgutachterInfo \\}{
+            \ifthenelse{\boolean{@isEXPBA}\or\boolean{@isEXPMA}}{
+            Matrikelnummer:   & \@matnr \\[.2cm]
+            }{}
             Erstgutachter:  	& \@erstgutachter \\
 								& \@erstgutachterInfo \\[.2cm]
             Zweitgutachter: 	& \@zweitgutachter \\
